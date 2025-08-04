@@ -51,17 +51,19 @@ set (PROJECT_SOURCES
 	Sources/main.c
 	Sources/syscalls.c
 	Sources/sysmem.c
-
+	Sources/interrupts.c
+	system/system_stm32h7xx.c
 	)
 
 set (PROJECT_DEFINES
 	# LIST COMPILER DEFINITIONS HERE
-	
+	USE_PWR_LDO_SUPPLY
     )
 
 set (PROJECT_INCLUDES
 	# LIST INCLUDE DIRECTORIES HERE
 	system/
+	Sources/
     )
 
 ############ MODIFY ACCORDING TO REQUIREMENTS #########################

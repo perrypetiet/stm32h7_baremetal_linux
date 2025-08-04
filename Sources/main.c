@@ -21,6 +21,7 @@
 
 
 #include "stm32h7xx.h"
+#include "system_stm32h7xx.h"
 
 /* Check for FPU usage, defines are done by compiler */
 #if !defined(__SOFT_FP__) && defined(__ARM_FP)
@@ -29,12 +30,18 @@
 
 int main(void)
 {
-  // Init MPU and system clock
+  //__HAL_RCC_SYSCFG_CLK_ENABLE();
 
+  // Init MPU and system clock
+  SystemCoreClockUpdate();
 
   // Cache initialization
   SCB_EnableDCache();
   SCB_EnableICache();
+
+  // Dereferencing a null pointer to trigger a hard fault
+  //uint32_t *null_ptr = (uint32_t *)0x0;
+  //*null_ptr = 0x1;
 
   /* Loop forever */
 	for(;;)
