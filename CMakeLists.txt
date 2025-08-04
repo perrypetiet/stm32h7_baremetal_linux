@@ -9,6 +9,9 @@
 #        For release build:
 #          cmake -DCMAKE_TOOLCHAIN_FILE=cubeide-gcc.cmake  -S ./ -B Release -G"Unix Makefiles" -DCMAKE_BUILD_TYPE=Release
 #          make -C Release VERBOSE=1 -j
+#
+#		 For now, there is no difference between release and debug versions. 	
+#
 #############################################################################################################################
 cmake_minimum_required(VERSION 3.20)
 
@@ -53,6 +56,10 @@ set (PROJECT_SOURCES
 	Sources/sysmem.c
 	Sources/interrupts.c
 	system/system_stm32h7xx.c
+	stm32h7xx-hal-driver/src/stm32h7xx_hal.c
+	stm32h7xx-hal-driver/src/stm32h7xx_hal_cortex.c
+	stm32h7xx-hal-driver/src/stm32h7xx_hal_rcc.c
+	stm32h7xx-hal-driver/src/stm32h7xx_hal_gpio.c
 	)
 
 set (PROJECT_DEFINES
@@ -64,6 +71,8 @@ set (PROJECT_INCLUDES
 	# LIST INCLUDE DIRECTORIES HERE
 	system/
 	Sources/
+	stm32h7xx-hal-driver/inc
+	stm32h7xx-hal-driver/inc/legacy
     )
 
 ############ MODIFY ACCORDING TO REQUIREMENTS #########################
