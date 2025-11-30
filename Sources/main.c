@@ -24,6 +24,8 @@
 #include "system_stm32h7xx.h"
 #include "stm32h7xx_hal.h"
 
+#include "led.h"
+
 /* Check for FPU usage, defines are done by compiler */
 #if !defined(__SOFT_FP__) && defined(__ARM_FP)
   #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
@@ -133,9 +135,15 @@ int main(void)
   // system clock configuration
   configureSystemClock();
 
+  // Init GPIO clock
+  __HAL_RCC_GPIOG_CLK_ENABLE();
+
+  init_led();
   /* Loop forever */
 	for(;;)
   {
-    printf("In a loop!");
+    HAL_Delay(1000);
+    toggle_led();
+    //printf("In a loop!");
   }
 }

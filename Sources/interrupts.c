@@ -10,6 +10,7 @@
  *
  */
 #include "stm32h7xx.h"
+#include "stm32h7xx_hal.h"
 
 /******************************************************************************/
 /*           Cortex Processor Interruption and Exception Handlers          */
@@ -94,7 +95,7 @@ void PendSV_Handler(void)
   */
 void SysTick_Handler(void)
 {
-  //HAL_IncTick();
+  HAL_IncTick();
 }
 
 /******************************************************************************/

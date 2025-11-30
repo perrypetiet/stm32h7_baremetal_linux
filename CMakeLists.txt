@@ -55,6 +55,7 @@ set (PROJECT_SOURCES
 	Sources/syscalls.c
 	Sources/sysmem.c
 	Sources/interrupts.c
+	driver/led.c
 	system/system_stm32h7xx.c
 	stm32h7xx-hal-driver/src/stm32h7xx_hal.c
 	stm32h7xx-hal-driver/src/stm32h7xx_hal_cortex.c
@@ -71,6 +72,7 @@ set (PROJECT_INCLUDES
 	# LIST INCLUDE DIRECTORIES HERE
 	system/
 	Sources/
+	driver/
 	stm32h7xx-hal-driver/inc
 	stm32h7xx-hal-driver/inc/legacy
     )
